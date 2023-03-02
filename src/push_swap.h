@@ -13,5 +13,8 @@ typedef struct 		s_stack
 int		parse_int(char *str);
 void	check_duplicates(int *arr, int size);
 void	print_arr(int *arr, int size);
+void	sa(t_stack *a);
+void	sb(t_stack *b);
+void	ss(t_stack *a, t_stack *b);
 
 #endif
