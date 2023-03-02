@@ -1,0 +1,17 @@
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
+
+#define INT_MAX 2147483647
+#define INT_MIN -2147483648
+
+typedef struct 		s_stack
+{
+	int			*arr;
+	int			top;
+}t_stack;
+
+int		parse_int(char *str);
+void	check_duplicates(int *arr, int size);
+void	print_arr(int *arr, int size);
+
+#endif
