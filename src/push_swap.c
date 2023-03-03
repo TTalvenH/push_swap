@@ -5,7 +5,7 @@
 void	init_stacks(int size, char **array, t_stack *a, t_stack *b)
 {
 	int	i;
-	int offset;
+	int	offset;
 
 	offset = 0;
 	i = 0;
@@ -25,11 +25,11 @@ void	init_stacks(int size, char **array, t_stack *a, t_stack *b)
 
 int	main(int argc, char **argv)
 {
-	t_stack a;
-	t_stack b;
+	t_stack	a;
 	int		size;
+	t_stack	b;
 	char	**array;
-	
+
 	size = 0;
 	if (argc > 1)
 	{

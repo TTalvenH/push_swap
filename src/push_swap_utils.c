@@ -1,11 +1,8 @@
 #include "../libft/libft.h"
 
-
-
-
 void	print_arr(int *arr, int size)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < size)
@@ -16,8 +13,8 @@ void	print_arr(int *arr, int size)
 
 void	check_duplicates(int *arr, int size)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (i < size)
@@ -27,7 +24,7 @@ void	check_duplicates(int *arr, int size)
 		{
 			if (arr[i] == arr[j])
 			{
-				ft_printf_fd(2,"Error\n");
+				ft_printf_fd(2, "Error\n");
 				exit(-1);
 			}
 			j++;
