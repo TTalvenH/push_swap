@@ -26,8 +26,8 @@ void	init_stacks(int size, char **array, t_stack *a, t_stack *b)
 int	main(int argc, char **argv)
 {
 	t_stack	a;
-	int		size;
 	t_stack	b;
+	int		size;
 	char	**array;
 
 	size = 0;
@@ -42,6 +42,7 @@ int	main(int argc, char **argv)
 		}
 		else
 			init_stacks(argc - 1, argv, &a, &b);
+		
 		ft_printf("a: "); print_arr(a.arr, a.top + 1);
 		ft_printf("b: "); print_arr(b.arr, b.top + 1);
 		free(a.arr);
