@@ -17,7 +17,7 @@ $(NAME): $(OBJ)
 
 $(OBJ_DIR)/%.o: %.c
 	mkdir -p $(OBJ_DIR)
-	$(CC) $(CFLAGS) -g -c $< -o $@
+	$(CC) $(CFLAGS) -g -I./include -I./libft/include -c $< -o $@
 
 clean:
 	rm -rf $(OBJ_DIR)

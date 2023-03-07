@@ -1,4 +1,4 @@
-#include "../libft/libft.h"
+#include "libft.h"
 
 void	print_arr(int *arr, int size)
 {
