@@ -1,5 +1,5 @@
-#include "../push_swap.h"
-#include "../../libft/libft.h"
+#include "push_swap.h"
+#include "libft.h"
 
 void	rotate(t_stack *stack)
 {

@@ -1,4 +1,4 @@
-#include "../libft/libft.h"
+#include "libft.h"
 #include "push_swap.h"
 
 static int	check_max_min(int i, int next_digit)

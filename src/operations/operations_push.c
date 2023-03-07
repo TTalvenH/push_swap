@@ -1,5 +1,5 @@
-#include "../push_swap.h"
-#include "../../libft/libft.h"
+#include "push_swap.h"
+#include "libft.h"
 
 void	push(t_stack *a, t_stack *b)
 {
