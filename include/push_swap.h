@@ -26,6 +26,9 @@ void	reverse_rotate(t_stack *stack);
 void	rra(t_stack *a);
 void	rrb(t_stack *b);
 void	rrr(t_stack *a, t_stack *b);
+int		median(t_stack *a);
+int find_best_pivot(int* stack, int stack_size);
+void quick_sort(int *a, int n);
 
 
 
