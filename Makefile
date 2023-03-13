@@ -2,7 +2,7 @@ NAME = push_swap
 CC = cc
 CFLAGS = -Wall -Werror -Wextra
 VPATH = src:src/operations
-SRC = push_swap.c parse_int.c push_swap_utils.c operations_push.c operations_rotate.c operations_reverse_rotate.c operations_swap.c quick_sort.c
+SRC = push_swap.c parse_int.c push_swap_utils.c operations_push.c operations_rotate.c operations_reverse_rotate.c operations_swap.c sort.c
 OBJ_DIR = obj
 OBJ =$(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))
 LIBFT = libft.a
