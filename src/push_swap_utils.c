@@ -1,4 +1,5 @@
 #include "libft.h"
+#include "push_swap.h"
 
 void	print_arr(int *arr, int size)
 {
@@ -31,4 +32,18 @@ void	check_duplicates(int *arr, int size)
 		}
 		i++;
 	}
+}
+
+int	is_sorted (t_stack *a)
+{
+	int	i;
+
+	i = 0;
+	while (i < a->top)
+	{
+		if (a->arr[i] < a->arr[i + 1])
+			return (1);
+		i++;
+	}
+	return (0);
 }

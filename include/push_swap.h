@@ -27,9 +27,9 @@ void	rra(t_stack *a);
 void	rrb(t_stack *b);
 void	rrr(t_stack *a, t_stack *b);
 int		median(t_stack *a);
-int find_best_pivot(int* stack, int stack_size);
-void quick_sort(int *a, int n);
-
+int		find_best_pivot(int* stack, int stack_size);
+void	sort(t_stack *a, t_stack *b);
+int		is_sorted (t_stack *a);
 
 
 #endif
