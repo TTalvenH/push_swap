@@ -34,13 +34,19 @@ int find_best_pivot(int* stack, int stack_size)
     return best_pivot;
 }
 
-void    small_sort (t_stack *a, t_stack *b)
+void    sort_3(t_stacks *stack)
 {
-    if ()
+    while(is_sorted(stack))
+    {
+        if (stack->a[2] < stack->a[1])
+            sa(stack);
+        else
+            ra(stack);
+    }
 }
 
-void	sort(t_stack *a, t_stack *b)
+void	sort(t_stacks *stack)
 {
-    if (a->top < 5)
-        small_sort (a, b);
+    if (stack->top_a == 2)
+        sort_3(stack);
 }   
