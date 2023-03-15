@@ -3,50 +3,44 @@
 #include <stdio.h>
 #include <math.h>
 
-int find_best_pivot(int* stack, int stack_size) 
-{
-    int best_pivot = INT_MAX;
-    int smallest_difference = INT_MAX;
-
-    for (int i = 0; i < stack_size; i++)
-	{
-        int pivot = stack[i];
-        int less_than_pivot_size = 0;
-        int greater_than_pivot_size = 0;
-
-        for (int j = 0; j < stack_size; j++)
-		{
-            if (stack[j] < pivot)
-                less_than_pivot_size++;
-			else if (stack[j] > pivot)
-                greater_than_pivot_size++;
-        }
-
-        int difference = abs(less_than_pivot_size - greater_than_pivot_size);
-
-        if (difference < smallest_difference)
-		{
-            smallest_difference = difference;
-            best_pivot = pivot;
-        }
-    }
-	ft_printf("%d\n", best_pivot);
-    return best_pivot;
-}
-
 void    sort_3(t_stacks *stack)
 {
     while(is_sorted(stack))
     {
-        if (stack->a[2] < stack->a[1])
+        if (stack->a[2] > stack->a[1] && stack->a[2] < stack->a[0])
             sa(stack);
-        else
+        else if (stack->a[2] > stack->a[1] && stack->a[2] > stack->a[0])
             ra(stack);
+        else
+            rra(stack);
     }
 }
 
+// void    ra_or_rra(int *stack, int *top, int i)
+// {
+
+// }
+
+// void    quick_sort(int *stack, int *top, t_stacks *stack)
+// {
+//     int pivot;
+//     int i;
+
+//     i = *top;
+//     pivot = find_best_pivot(stack, *top);
+//     while (i > 0)
+//     {
+//         if (stack[i] < pivot)
+//             move to b
+//         i--;
+//     }
+    
+// }
+
 void	sort(t_stacks *stack)
 {
-    if (stack->top_a == 2)
-        sort_3(stack);
+    int pivot;
+
+    median(&pivot, stack);
+    ft_printf("pivot: %d\n", pivot);
 }   

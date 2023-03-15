@@ -25,9 +25,9 @@ void	init_stacks(int size, char **array, t_stacks *stack)
 
 int	main(int argc, char **argv)
 {
-	t_stacks stack;
-	int		size;
-	char	**array;
+	t_stacks	stack;
+	int			size;
+	char		**array;
 
 	size = 0;
 	if (argc > 1)
