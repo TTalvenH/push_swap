@@ -16,31 +16,52 @@ void    sort_3(t_stacks *stack)
     }
 }
 
-// void    ra_or_rra(int *stack, int *top, int i)
-// {
+void    quick_sort_a(int *arr, int len, t_stacks *stack)
+{
+    int pivot;
+    int i;
 
-// }
+    if (len == 2 && is_sorted(stack))
+        sa(stack);
+    if (len == 3 && is_sorted(stack))
+        sort_3(stack);
+    if (len <= 3)
+        return ;
+    i = len;
+    median(&pivot, arr, len);
+    while (i > 0)
+    {
+        if (arr[stack->top_a] < pivot && stack->top_a > 2)
+            pb(stack);
+        else if (stack->top_a > 2)
+            ra(stack);
+        i--;
+    }
+    quick_sort_a (arr, stack->top_a + 1, stack);
+}
 
-// void    quick_sort(int *stack, int *top, t_stacks *stack)
-// {
-//     int pivot;
-//     int i;
+void    quick_sort_b(int *arr, int len, t_stacks *stack)
+{
+    int pivot;
+    int i;
 
-//     i = *top;
-//     pivot = find_best_pivot(stack, *top);
-//     while (i > 0)
-//     {
-//         if (stack[i] < pivot)
-//             move to b
-//         i--;
-//     }
-    
-// }
+    if (len <= 3)
+        return ;
+    i = len;
+    median(&pivot, arr, len);
+    while (i > 0)
+    {
+        if (arr[stack->top_b] > pivot)
+            pa(stack);
+        else 
+            rb(stack);
+        i--;
+    }
+    quick_sort_b (arr, stack->top_b + 1, stack);
+}
 
 void	sort(t_stacks *stack)
 {
-    int pivot;
-
-    median(&pivot, stack);
-    ft_printf("pivot: %d\n", pivot);
+    quick_sort_a(stack->a, stack->top_a + 1, stack);
+    quick_sort_b(stack->b, stack->top_b + 1, stack);
 }   

@@ -41,19 +41,19 @@ int	main(int argc, char **argv)
 		}
 		else
 			init_stacks(argc - 1, argv, &stack);
-		ft_printf("a: "); print_arr(stack.a, stack.top_a + 1);
-		ft_printf("b: "); print_arr(stack.b, stack.top_b + 1);
-		ft_printf("\n");
+		// ft_printf("a: "); print_arr(stack.a, stack.top_a + 1);
+		// ft_printf("b: "); print_arr(stack.b, stack.top_b + 1);
+		// ft_printf("\n");
 
 		sort(&stack);
 
-		ft_printf("\n");
-		ft_printf("a: "); print_arr(stack.a, stack.top_a + 1);
-		ft_printf("b: "); print_arr(stack.b, stack.top_b + 1);
-		if (!is_sorted (&stack))
-			ft_printf("IS sorted\n");
-		else
-			ft_printf("NOT sorted\n");
+		// ft_printf("\n");
+		// ft_printf("a: "); print_arr(stack.a, stack.top_a + 1);
+		// ft_printf("b: "); print_arr(stack.b, stack.top_b + 1);
+		// if (!is_sorted (&stack))
+		// 	ft_printf("IS sorted\n");
+		// else
+		// 	ft_printf("NOT sorted\n");
 		free(stack.a);
 		free(stack.b);
 	}

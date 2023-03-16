@@ -1,5 +1,6 @@
 #include "push_swap.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 int	partition(int *arr, int len)
 {
@@ -25,7 +26,7 @@ int	partition(int *arr, int len)
 }
 
 
-void	quick_sort(int *arr, int len)
+static void	quick_sort(int *arr, int len)
 {
 	int	part_index;
 	
@@ -38,19 +39,17 @@ void	quick_sort(int *arr, int len)
 		quick_sort(arr + part_index + 1, len - part_index - 1);
 }
 
-int	median(int *median, t_stacks *stack)
+int	median(int *median, int *stack, int len)
 {
 	int	*temp;
 	int i;
-	int len;
 
-	len = stack->top_a + 1;
 	i = -1;
 	temp = malloc(sizeof(int) * len);
 	if (!temp)
 		return (1);
 	while (++i < len)
-		temp[i] = stack->a[i];
+		temp[i] = stack[i];
 	quick_sort(temp, len);
 	*median = temp[len / 2];
 	free(temp);
