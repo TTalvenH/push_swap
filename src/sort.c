@@ -21,23 +21,29 @@ void    quick_sort_a(int *arr, int len, t_stacks *stack)
     int pivot;
     int i;
 
-    if (len == 2 && is_sorted(stack))
-        sa(stack);
-    if (len == 3 && is_sorted(stack))
-        sort_3(stack);
+    // if (len == 2 && is_sorted(stack))
+    //     sa(stack);
+    // if (len == 3 && is_sorted(stack))
+    //     sort_3(stack);
     if (len <= 3)
+    {
+        while (stack->top_a > -1)
+            pb(stack);
         return ;
+    }
     i = len;
     median(&pivot, arr, len);
     while (i > 0)
     {
-        if (arr[stack->top_a] < pivot && stack->top_a > 2)
+        if (arr[stack->top_a] < pivot)
             pb(stack);
-        else if (stack->top_a > 2)
+        else
             ra(stack);
         i--;
     }
-    quick_sort_a (arr, stack->top_a + 1, stack);
+    quick_sort_a(arr, stack->top_a + 1, stack);
+    quick_sort_b(stack->b, len, stack);
+    ft_printf("---\n");
 }
 
 void    quick_sort_b(int *arr, int len, t_stacks *stack)
@@ -57,11 +63,11 @@ void    quick_sort_b(int *arr, int len, t_stacks *stack)
             rb(stack);
         i--;
     }
-    quick_sort_b (arr, stack->top_b + 1, stack);
+    quick_sort_b (arr, stack->top_b + len, stack);
 }
 
 void	sort(t_stacks *stack)
 {
     quick_sort_a(stack->a, stack->top_a + 1, stack);
-    quick_sort_b(stack->b, stack->top_b + 1, stack);
+    // quick_sort_b(stack->b, stack->top_b + 1, stack);
 }   

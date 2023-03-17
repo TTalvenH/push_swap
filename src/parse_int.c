@@ -11,8 +11,8 @@ static int	check_max_min(int i, int next_digit)
 	}
 	else
 	{
-		if (i < (INT_MIN / 10)
-			|| (i == (INT_MIN / 10) && - next_digit < (INT_MIN % -10)))
+		if (i < INT_MIN / 10
+			|| (i == INT_MIN / 10 && - next_digit < INT_MIN % -10))
 			return (1);
 	}
 	return (0);
@@ -25,9 +25,10 @@ int	parse_int(char *str)
 
 	i = 0;
 	sign = 1;
-	if (*str == '-')
+	if (*str == '-' || *str == '+')
 	{
-		sign = -1;
+		if (*str == '-')
+			sign = -1;
 		str++;
 	}
 	while (*str != '\0')

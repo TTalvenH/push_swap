@@ -26,9 +26,10 @@ void	rr(t_stacks *stack);
 void	rra(t_stacks *stack);
 void	rrb(t_stacks *stack);
 void	rrr(t_stacks *stack);
-int	median(int *median, int *stack, int len);
+int		median(int *median, int *stack, int len);
 void	sort(t_stacks *stack);
 int		is_sorted (t_stacks *stack);
+void    quick_sort_b(int *arr, int len, t_stacks *stack);
 
 
 #endif
