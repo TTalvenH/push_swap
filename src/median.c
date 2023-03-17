@@ -51,7 +51,6 @@ int	median(int *median, int *stack, int len)
 		temp[i] = stack[i];
 	quick_sort(temp, len);
 	*median = temp[len / 2];
-	ft_printf("%d\n", *median);
 	free(temp);
 	return (0);
 }

@@ -27,8 +27,6 @@ void    quick_sort_a(int *arr, int len, t_stacks *stack)
     //     sort_3(stack);
     if (len <= 3)
     {
-        while (stack->top_a > -1)
-            pb(stack);
         return ;
     }
     i = len;
@@ -42,8 +40,7 @@ void    quick_sort_a(int *arr, int len, t_stacks *stack)
         i--;
     }
     quick_sort_a(arr, stack->top_a + 1, stack);
-    quick_sort_b(stack->b, len, stack);
-    ft_printf("---\n");
+    quick_sort_b(stack->b,  len, stack);
 }
 
 void    quick_sort_b(int *arr, int len, t_stacks *stack)
@@ -54,7 +51,7 @@ void    quick_sort_b(int *arr, int len, t_stacks *stack)
     if (len <= 3)
         return ;
     i = len;
-    median(&pivot, arr, len);
+    median(&pivot, arr + (stack->top_b - len), len);
     while (i > 0)
     {
         if (arr[stack->top_b] > pivot)
@@ -63,7 +60,7 @@ void    quick_sort_b(int *arr, int len, t_stacks *stack)
             rb(stack);
         i--;
     }
-    quick_sort_b (arr, stack->top_b + len, stack);
+    quick_sort_b (arr, stack->top_b, stack);
 }
 
 void	sort(t_stacks *stack)
