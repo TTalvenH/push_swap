@@ -34,16 +34,28 @@ void	check_duplicates(int *arr, int size)
 	}
 }
 
-int	is_sorted (t_stacks *stack)
+int	is_sorted (int *arr, int len, int order)
 {
 	int	i;
 
 	i = 0;
-	while (i < stack->top_a)
+	if (order)
 	{
-		if (stack->a[i] < stack->a[i + 1])
-			return (1);
-		i++;
+		while (i < len - 1)
+		{
+			if (arr[i] < arr[i + 1])
+				return (1);
+			i++;
+		}
+	}
+	else if (!order)
+	{
+		while (i < len - 1)
+		{
+			if (arr[i] > arr[i + 1])
+				return (1);
+			i++;
+		}
 	}
 	return (0);
 }
