@@ -1,7 +1,7 @@
 #include "push_swap.h"
 #include <stdlib.h>
 #include "libft.h"
-int	partition(int *arr, int len)
+static int	partition(int *arr, int len)
 {
 	int	*temp;
 	int lower;
