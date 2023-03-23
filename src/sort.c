@@ -11,37 +11,34 @@ void    push_sort_top_3(int order, t_stacks *stack)
     i = 3;
     if (order)
     {
+        if (stack->top_a == 2)
+            sort_3 (stack->a, stack->top_a, ASCENDING, stack);
         while (i > 0)
         {
-            if (i > 1 && stack->a[stack->top_a] < stack->a[stack->top_a - 1])
-                sa(stack);
-            if (i == 1 && stack->b[stack->top_b] > stack->b[stack->top_b - 1])
-                sb(stack);
-            else if (i-- > 0)
-                pb(stack);
-        }   
-        pa(stack);
-        pa(stack);
-        pa(stack);
+                if (i > 1 && stack->a[stack->top_a] > stack->a[stack->top_a - 1])
+                    sa(stack);
+                if (i == 1 && stack->b[stack->top_b] < stack->b[stack->top_b - 1])
+                    sb(stack);
+                else if (i == 1 && i--)
+                {
+                    pa(stack);
+                    pa(stack);
+                }
+                else if (i-- > 0)
+                    pb(stack);
+        }
     }
     else if (!order)
     {
         while (i > 0)
         {
             if (i > 1 && stack->b[stack->top_b] < stack->b[stack->top_b - 1])
-            {
-                
-                ft_printf("test1\n");
                 sb(stack);
-            }
             if (i == 1 && stack->a[stack->top_a] > stack->a[stack->top_a - 1])
                 sa(stack);
             else if (i-- > 0)
-            {
-                ft_printf("test2\n");
                 pa(stack);
-            }
-        }   
+        }
     }
 }
 
@@ -101,92 +98,73 @@ void    partition(t_stacks *stack, int len)
 
 void    quick_sort_a(int *arr, int len, t_stacks *stack)
 {
+    int half;
+    int half_parity;
     int pivot;
-    int i;
-    int upper;
-    int lower;
+    int under;
 
-    i = len;
-    upper = 0;
-    lower = 0;
+    under = 0;
+    half = len / 2;
+    half_parity = len / 2 + (len & 1);
+    median(&pivot, stack->a, len);
     if (len <= 3)
-    {
-        if (len == 3)
-        {
-            push_sort_top_3(ASCENDING, stack);
-            return ;
-        }
-        if (len == 2 && is_sorted(stack->a, stack->top_a + 1, ASCENDING))
-            sa(stack);
-        return ;
-    }
-    median(&pivot, arr + (stack->top_a - len), len);
-    while(i-- > 0)
-    {
-        if (arr[stack->top_a] < pivot)
-            lower++;
-        if (arr[stack->top_a] < pivot)
+        return (push_sort_top_3(ASCENDING, stack));
+    while (len != half_parity)
+        if (arr[stack->top_a] < pivot && len--)
             pb(stack);
-        else
-        {
+        else if (++under)
             ra(stack);
-            upper++;
-        }
-    }
-    i = upper;
-    while (i-- > 0)
+    while (half_parity != stack->top_a + 1 && under--)
         rra(stack);
-    quick_sort_b(stack->b, lower, stack);
-    quick_sort_a(stack->a, upper, stack);
+    quick_sort_a(stack->a, half_parity, stack);
+    quick_sort_b(stack->b, half, stack);
 }
 
 void    quick_sort_b(int *arr, int len, t_stacks *stack)
 {
+    int half;
+    int half_parity;
     int pivot;
-    int i;
-    int upper;
-    int lower;
+    int under;
 
-    i = len;
-    upper = 0;
-    lower = 0;
+    under = 0;
+    half = len / 2;
+    half_parity = len / 2 + (len & 1);
+    median(&pivot, stack->b, len);
     if (len <= 3)
     {
-        if (len == 3)
-        {
-            push_sort_top_3(DESCENDING, stack);
-            return ;
-        }
-        if (len == 2 && is_sorted(stack->b, stack->top_b + 1, DESCENDING))
-            sb(stack);
-        while (len-- > 0)
+        if (len == 1)
             pa(stack);
+        else if (len == 2)
+        {
+            if (stack->b[stack->top_b] < stack->b[stack->top_b - 1])
+                sb(stack);
+            pa(stack);
+            pa(stack);
+        }
+        else if (len == 3)
+            push_sort_top_3(DESCENDING, stack);
         return ;
     }
-    median(&pivot, arr + (stack->top_b - len), len);
-    while(i-- > 0)
+    while (len != half)
     {
-        if (arr[stack->top_b] > pivot)
-            upper++;
-        if (arr[stack->top_b] > pivot)
+        ft_printf("len: %d, half: %d, pivot : %d\n", len, half, pivot);
+        if (arr[stack->top_b] <= pivot && len--)
             pa(stack);
-        else
-        {
+        else if (++under)
             rb(stack);
-            lower++;
-        }
     }
-    i = lower;
-    while (i-- > 0)
+    while (half != stack->top_b + 1 && under--)
         rrb(stack);
-    quick_sort_a(stack->a, upper, stack);
-    quick_sort_b(stack->b, lower, stack);
+    quick_sort_a(stack->a, half_parity, stack);
+    quick_sort_b(stack->b, half, stack);
 }
 
 void	sort(t_stacks *stack)
 {
-    partition(stack, stack->top_a + 1);
+    // partition(stack, stack->top_a + 1);
+    
     // sort_3(stack->a, stack->top_a, DESCENDING, stack);
-    // quick_sort_a(stack->a, stack->top_a + 1, stack);
+    quick_sort_a(stack->a, stack->top_a + 1, stack);
     // quick_sort_b(stack->b, stack->top_b + 1, stack);
 }   

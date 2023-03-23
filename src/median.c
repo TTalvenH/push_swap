@@ -11,7 +11,7 @@ static int	partition(int *arr, int len)
 	i = -1;
 	lower = 0;
 	upper = len - 1;
-	temp = malloc (sizeof(int) * len);
+	temp = malloc (sizeof(int) * len + 1);
 	while (++i < len - 1)
 		if (arr[i] > arr[len - 1])
 			temp[upper--] = arr[i];
@@ -21,6 +21,7 @@ static int	partition(int *arr, int len)
 	i = -1;
 	while (++i < len)
 		arr[i] = temp[i];
+	free(temp);
 	return (lower);
 }
 

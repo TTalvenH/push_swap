@@ -46,9 +46,10 @@ int	main(int argc, char **argv)
 		// ft_printf("\n");
 
 		sort(&stack);
+		// push_sort_top_3(ASCENDING, &stack);
 
 		// ft_printf("\n");
-		// ft_printf("a: "); print_arr(stack.a, stack.top_a + 1);
+		// ft_printf("a: "); print_arr(stack.a, stack.top_a + 1);      
 		// ft_printf("b: "); print_arr(stack.b, stack.top_b + 1);
 		// if (!is_sorted (stack.a, stack.top_a + 1, ASCENDING))
 		// 	ft_printf("IS sorted\n");
