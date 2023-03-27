@@ -27,7 +27,7 @@ void	sb(t_stacks *stack)
 
 void	ss(t_stacks *stack)
 {
-	sa(stack);
-	sb(stack);
+	swap(stack->a, &stack->top_a);
+	swap(stack->b, &stack->top_b);
 	ft_printf("ss\n");
 }

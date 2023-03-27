@@ -41,21 +41,7 @@ int	main(int argc, char **argv)
 		}
 		else
 			init_stacks(argc - 1, argv, &stack);
-		// ft_printf("a: "); print_arr(stack.a, stack.top_a + 1);
-		// ft_printf("b: "); print_arr(stack.b, stack.top_b + 1);
-		// ft_printf("\n");
-
-		sort(&stack);
-		// push_sort_top_3(ASCENDING, &stack);
-		// sort_top_3(stack.a, stack.top_a, &stack);
-
-		// ft_printf("\n");
-		// ft_printf("a: "); print_arr(stack.a, stack.top_a + 1);      
-		// ft_printf("b: "); print_arr(stack.b, stack.top_b + 1);
-		// if (!is_sorted (stack.a, stack.top_a + 1, ASCENDING))
-		// 	ft_printf("IS sorted\n");
-		// else
-		// 	ft_printf("NOT sorted\n");
+		quick_sort_a(stack.a, stack.top_a + 1, &stack);
 		free(stack.a);
 		free(stack.b);
 	}
