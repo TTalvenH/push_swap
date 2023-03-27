@@ -32,7 +32,7 @@ void	rrb(t_stacks *stack);
 void	rrr(t_stacks *stack);
 int		median(int *median, int *stack, int len);
 void	sort(t_stacks *stack);
-void    sort_3(int *arr, int len, int order, t_stacks *stack);
+void    sort_3(int *arr, t_stacks *stack);
 void   sort_top_3(int *arr, int top, t_stacks *stack, int which_stack);
 void    push_sort_top_3(int order, t_stacks *stack);
 int		is_sorted (int *arr, int len, int order);
