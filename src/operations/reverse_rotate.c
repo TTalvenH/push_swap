@@ -18,19 +18,19 @@ void	reverse_rotate(int *stack, int *top)
 
 void	rra(t_stacks *stack)
 {
-	reverse_rotate(stack->a, &stack->top_a);
+	reverse_rotate(stack->a, &stack->ta);
 	ft_printf("rra\n");
 }
 
 void	rrb(t_stacks *stack)
 {
-	reverse_rotate(stack->b, &stack->top_b);
+	reverse_rotate(stack->b, &stack->tb);
 	ft_printf("rrb\n");
 }
 
 void	rrr(t_stacks *stack)
 {
-	reverse_rotate(stack->a, &stack->top_a);
-	reverse_rotate(stack->b, &stack->top_b);
+	reverse_rotate(stack->a, &stack->ta);
+	reverse_rotate(stack->b, &stack->tb);
 	ft_printf("rrr\n");
 }

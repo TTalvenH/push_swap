@@ -11,9 +11,10 @@
 typedef struct s_stacks
 {
 	int			*a;
-	int			top_a;
+	int			ta;
 	int			*b;
-	int			top_b;
+	int			tb;
+	int			i;
 }t_stacks;
 
 int		parse_int(char *str, t_stacks *stack);
@@ -32,13 +33,13 @@ void	rrb(t_stacks *stack);
 void	rrr(t_stacks *stack);
 void	error(t_stacks *stack);
 int		median(int *median, int *stack, int len);
-void    quick_sort_a(int *arr, int len, t_stacks *stack);
+void	quick_sort_a(int *arr, int len, t_stacks *stack);
 void	sort(t_stacks *stack);
-void    sort_3(int *arr, t_stacks *stack);
+void	sort_3(int *arr, t_stacks *stack);
 void	sort_top_3(int *arr, int top, t_stacks *stack, int which_stack);
-void    push_sort_top_3(int order, t_stacks *stack);
-int		is_sorted (int *arr, int len, int order);
-void    quick_sort_b(int *arr, int len, t_stacks *stack);
+void	push_sort_top_3(int order, t_stacks *stack);
+int		is_sorted(int *arr, int len, int order);
+void	quick_sort_b(int *arr, int len, t_stacks *stack);
 
 
 #endif

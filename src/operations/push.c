@@ -9,12 +9,12 @@ void	push(int *stack1, int *top1, int *stack2, int *top2)
 
 void	pa(t_stacks *stack)
 {
-	push(stack->a, &stack->top_a, stack->b, &stack->top_b);
+	push(stack->a, &stack->ta, stack->b, &stack->tb);
 	ft_printf("pa\n");
 }
 
 void	pb(t_stacks *stack)
 {
-	push(stack->b, &stack->top_b, stack->a, &stack->top_a);
+	push(stack->b, &stack->tb, stack->a, &stack->ta);
 	ft_printf("pb\n");
 }

@@ -3,7 +3,7 @@
 
 void	swap(int *stack, int *top)
 {
-	int temp;
+	int	temp;
 
 	if (*top > 0)
 	{
@@ -15,19 +15,19 @@ void	swap(int *stack, int *top)
 
 void	sa(t_stacks *stack)
 {
-	swap(stack->a, &stack->top_a);
+	swap(stack->a, &stack->ta);
 	ft_printf("sa\n");
 }
 
 void	sb(t_stacks *stack)
 {
-	swap(stack->b, &stack->top_b);
+	swap(stack->b, &stack->tb);
 	ft_printf("sb\n");
 }
 
 void	ss(t_stacks *stack)
 {
-	swap(stack->a, &stack->top_a);
-	swap(stack->b, &stack->top_b);
+	swap(stack->a, &stack->ta);
+	swap(stack->b, &stack->tb);
 	ft_printf("ss\n");
 }
