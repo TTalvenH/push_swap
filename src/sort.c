@@ -90,7 +90,8 @@ void	quick_sort_a(int *arr, int len, t_stacks *stack)
 	under = 0;
 	half = len / 2;
 	half_parity = len / 2 + (len & 1);
-	median(&pivot, stack->a + (stack->ta - len + 1), len);
+	if (median(&pivot, stack->a + (stack->ta - len + 1), len))
+		error(stack);
 	if (len <= 3)
 		return (sort_small(stack, len, A_STACK));
 	while (len != half_parity)
@@ -116,7 +117,8 @@ void	quick_sort_b(int *arr, int len, t_stacks *stack)
 	under = 0;
 	half = len / 2;
 	half_parity = len / 2 + (len & 1);
-	median(&pivot, stack->b + (stack->tb - len + 1), len);
+	if (median(&pivot, stack->b + (stack->tb - len + 1), len))
+		error(stack);
 	if (len <= 3)
 		return (sort_small(stack, len, B_STACK));
 	while (len != half)
