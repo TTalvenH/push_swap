@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ttalvenh <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/29 13:31:19 by ttalvenh          #+#    #+#             */
+/*   Updated: 2023/03/29 13:31:21 by ttalvenh         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 #include "push_swap.h"
 #include <stdio.h>
@@ -32,12 +44,27 @@ void	sort_top_3(int *arr, int top, t_stacks *stack, int which_stack)
 	}
 }
 
+void	sort_3(t_stacks *stack)
+{
+	while (is_sorted(stack->a, stack->ta + 1, ASCENDING))
+	{
+		if (stack->a[2] > stack->a[1] && stack->a[2] < stack->a[0])
+			sa(stack);
+		else if (stack->a[2] > stack->a[1] && stack->a[2] > stack->a[0])
+			ra(stack);
+		else
+			rra(stack);
+	}
+}
+
 void	sort_small(t_stacks *stack, int len, int which_stack)
 {
 	if (!which_stack)
 	{
 		if (len == 2 && stack->a[stack->ta] > stack->a[stack->ta - 1])
 			sa(stack);
+		else if (stack->ta == 2)
+			sort_3(stack);
 		else if (len == 3)
 			sort_top_3(stack->a, stack->ta, stack, A_STACK);
 	}

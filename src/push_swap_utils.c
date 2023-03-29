@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap_utils.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ttalvenh <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/29 13:31:12 by ttalvenh          #+#    #+#             */
+/*   Updated: 2023/03/29 13:31:13 by ttalvenh         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 #include "push_swap.h"
 
@@ -9,7 +21,6 @@ void	print_arr(int *arr, int size)
 	while (i < size)
 		ft_printf("%d ", arr[i++]);
 	ft_printf("\n");
-
 }
 
 void	check_duplicates(int *arr, int size)
@@ -34,7 +45,7 @@ void	check_duplicates(int *arr, int size)
 	}
 }
 
-int	is_sorted (int *arr, int len, int order)
+int	is_sorted(int *arr, int len, int order)
 {
 	int	i;
 

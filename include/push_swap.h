@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ttalvenh <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/29 13:31:54 by ttalvenh          #+#    #+#             */
+/*   Updated: 2023/03/29 13:31:56 by ttalvenh         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
@@ -35,11 +47,9 @@ void	error(t_stacks *stack);
 int		median(int *median, int *stack, int len);
 void	quick_sort_a(int *arr, int len, t_stacks *stack);
 void	sort(t_stacks *stack);
-void	sort_3(int *arr, t_stacks *stack);
+void	sort_3(t_stacks *stack);
 void	sort_top_3(int *arr, int top, t_stacks *stack, int which_stack);
 void	push_sort_top_3(int order, t_stacks *stack);
 int		is_sorted(int *arr, int len, int order);
 void	quick_sort_b(int *arr, int len, t_stacks *stack);
-
-
 #endif
