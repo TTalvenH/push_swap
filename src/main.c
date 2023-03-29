@@ -2,6 +2,16 @@
 #include "push_swap.h"
 #include <stdlib.h>
 
+void	error(t_stacks *stack)
+{
+	if (stack->a)
+		free (stack->a);
+	if (stack->b)
+		free (stack->b);
+	ft_printf_fd(2, "Error\n");
+	exit(1);
+}
+
 void	init_stacks(int size, char **array, t_stacks *stack)
 {
 	int	i;
@@ -10,14 +20,16 @@ void	init_stacks(int size, char **array, t_stacks *stack)
 	offset = 0;
 	i = 0;
 	stack->a = malloc (sizeof(int) * size);
-	stack->top_a = 0;
 	stack->b = malloc (sizeof(int) * size);
+	if (!stack->a || !stack->b)
+		error(stack);
+	stack->top_a = 0;
 	stack->top_b = -1;
 	while (i < size)
 	{
 		if (array[size] == NULL)
 			offset = 1;
-		stack->a[stack->top_a++] = parse_int(array[size - i++ - offset]);
+		stack->a[stack->top_a++] = parse_int(array[size - i++ - offset], stack);
 	}
 	stack->top_a--;
 	check_duplicates(stack->a, size);
@@ -41,7 +53,8 @@ int	main(int argc, char **argv)
 		}
 		else
 			init_stacks(argc - 1, argv, &stack);
-		quick_sort_a(stack.a, stack.top_a + 1, &stack);
+		if (is_sorted(stack.a, stack.top_a + 1, ASCENDING))
+			quick_sort_a(stack.a, stack.top_a + 1, &stack);
 		free(stack.a);
 		free(stack.b);
 	}

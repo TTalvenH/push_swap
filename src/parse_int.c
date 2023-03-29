@@ -18,7 +18,7 @@ static int	check_max_min(int i, int next_digit)
 	return (0);
 }
 
-int	parse_int(char *str)
+int	parse_int(char *str, t_stacks *stack)
 {
 	int	i;
 	int	sign;
@@ -30,14 +30,13 @@ int	parse_int(char *str)
 		if (*str == '-')
 			sign = -1;
 		str++;
+		if (!*str)
+			error(stack);
 	}
 	while (*str != '\0')
 	{
 		if (!ft_isdigit(*str) || check_max_min(i, *str - '0'))
-		{
-			ft_printf_fd(2, "Error\n");
-			exit (-1);
-		}
+			error(stack);
 		i = i * 10 + (*str - '0') * sign;
 		str++;
 	}

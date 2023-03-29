@@ -16,7 +16,7 @@ typedef struct s_stacks
 	int			top_b;
 }t_stacks;
 
-int		parse_int(char *str);
+int		parse_int(char *str, t_stacks *stack);
 void	check_duplicates(int *arr, int size);
 void	print_arr(int *arr, int size);
 void	sa(t_stacks *stack);
@@ -30,6 +30,7 @@ void	rr(t_stacks *stack);
 void	rra(t_stacks *stack);
 void	rrb(t_stacks *stack);
 void	rrr(t_stacks *stack);
+void	error(t_stacks *stack);
 int		median(int *median, int *stack, int len);
 void    quick_sort_a(int *arr, int len, t_stacks *stack);
 void	sort(t_stacks *stack);
