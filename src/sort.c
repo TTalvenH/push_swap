@@ -133,3 +133,4 @@ void	quick_sort_b(int *arr, int len, t_stacks *stack)
 	quick_sort_a(stack->a, half_parity, stack);
 	quick_sort_b(stack->b, half, stack);
 }
+
