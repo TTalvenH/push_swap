@@ -11,7 +11,7 @@ OBJ =$(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))
 DEP =$(OBJ:.o=.d)
 
 LIBFT_FLAGS = -Ilibft -Llibft -lft
-LIBFT = libft.a
+LIBFT = libft/libft.a
 
 
 all: $(NAME)
@@ -19,14 +19,16 @@ all: $(NAME)
 $(LIBFT):
 	make -C libft
 
-$(NAME): $(LIBFT) $(OBJ)
-	$(CC) $(CFLAGS) $(LIBFT_FLAGS) $(OBJ) -o $@
+$(NAME): $(OBJ_DIR) $(LIBFT) $(OBJ)
+	$(CC) $(CFLAGS) $(OBJ) $(LIBFT_FLAGS) -o $@
 	
 -include $(DEP)
 
 $(OBJ_DIR)/%.o: %.c
-	mkdir -p $(OBJ_DIR)
 	$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
+
+$(OBJ_DIR):
+	mkdir -p $(OBJ_DIR)
 
 
 clean:
